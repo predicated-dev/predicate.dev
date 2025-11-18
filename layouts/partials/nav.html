@@ -27,6 +27,12 @@
           {{ end }}
         </tr>
       </thead>
+    <tfoot>
+    <tr>
+      <td colspan="99"><a href="https://github.com/predicated-dev/predicate.dev?tab=readme-ov-file#translations">{{ i18n "translate_this_page"}}</a></td>
+      
+    </tr>
+    </tfoot>
       <tbody>
         {{/* Choose baseline language for version rows */}}
         {{ $baseline := cond (in (slice "en") "en") "en" (index $langObjs 0).Lang }}
@@ -60,6 +66,7 @@
           {{ end }}
         {{ end }}
       </tbody>
+
     </table>
   </details>
 </nav>

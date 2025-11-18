@@ -1,0 +1,65 @@
+<nav>
+  <details class="nav-matrix">
+    <summary>{{ i18n "versions_and_languages" }}</summary>
+
+    {{/* Collect all pages in this section across all languages */}}
+    {{ $pages := slice }}
+    {{ range .Sites }}
+      {{ $sitePages := where (where .RegularPages "Kind" "page") "Section" $.Section }}
+      {{ $pages = $pages | append $sitePages }}
+    {{ end }}
+
+    {{/* Build language objects ordered by weight, but only keep those with pages */}}
+    {{ $langObjs := slice }}
+    {{ range .Site.Languages }}
+      {{ $langPages := where $pages "Lang" .Lang }}
+      {{ if gt (len $langPages) 0 }}
+        {{ $langObjs = $langObjs | append . }}
+      {{ end }}
+    {{ end }}
+
+    <table>
+      <thead>
+        <tr>
+          <th>{{ i18n "version" }}</th>
+          {{ range $langObjs }}
+            <th>{{ .LanguageName }}</th>
+          {{ end }}
+        </tr>
+      </thead>
+      <tbody>
+        {{/* Choose baseline language for version rows */}}
+        {{ $baseline := cond (in (slice "en") "en") "en" (index $langObjs 0).Lang }}
+        {{ $baselinePages := where $pages "Lang" $baseline }}
+        {{ $sorted := sort $baselinePages "Params.weight" "desc" }}
+
+        {{ range $sorted }}
+          {{ if .Params.version }}
+            {{ $version := .Params.version | string }}
+            <tr>
+              <td>{{ $version }}</td>
+              {{ range $langObjs }}
+                {{ $lang := .Lang }}
+                {{ $langPages := where $pages "Lang" $lang }}
+                {{ $versionPages := where $langPages "Params.version" $version }}
+                {{ $matching := index (first 1 $versionPages) 0 }}
+                <td>
+                  {{ if $matching }}
+                    {{ if eq $.Permalink $matching.Permalink }}
+                      <a href="{{ $matching.Permalink }}"><strong style="color:blue">{{ i18n "current_page" }} </strong></a>
+                    
+                    {{ else }}
+                      <a href="{{ $matching.Permalink }}">{{ $lang | title }}</a>
+                    {{ end }}
+                  {{ else }}
+                    -
+                  {{ end }}
+                </td>
+              {{ end }}
+            </tr>
+          {{ end }}
+        {{ end }}
+      </tbody>
+    </table>
+  </details>
+</nav>

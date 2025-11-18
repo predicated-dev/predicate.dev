@@ -1,0 +1,51 @@
+baseURL = "https://predicate.dev"
+title = "Predicate Specifications"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+[markup]
+  [markup.highlight]
+    style = "github"   # or monokai, github, etc.
+    lineNumbers = true
+    noClasses = false   # if false, Hugo outputs CSS classes instead of inline styles
+
+[languages]
+  [languages.en]
+    weight = 1
+    languageName = "English"
+
+  [languages.fr]
+    weight = 2
+    languageName = "Français"
+
+  [languages.de]
+   weight = 3
+   languageName = "Deutsch"
+
+  [languages.es]
+    weight = 4
+    languageName = "Español"
+
+  [languages.it]
+    weight = 5
+    languageName = "Italiano"
+
+  [languages.pt]
+    weight = 6
+    languageName = "Português"
+
+  [languages.ru]
+    weight = 7
+    languageName = "Русский"
+
+  [languages.zh]
+    weight = 8
+    languageName = "中文"
+
+  [languages.ja]
+    weight = 9
+    languageName = "日本語"
+
+  [languages.ko]
+    weight = 10
+    languageName = "한국어"

@@ -1,0 +1,268 @@
+/* Global styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: #1f2937;
+  line-height: 1.6;
+  margin: 1rem 5rem;
+  padding: 1rem;
+  background-color: #f9fafb;
+}
+
+
+/* Container for margins */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Heading hierarchy */
+h1 {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.375rem; /* 22px */
+  font-weight: 600;
+  margin-top: 1.25rem; 
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+  color: #1e40af;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #1e3a8a;
+  text-decoration: underline;
+}
+
+/* :not(.highlight) > code {
+   background-color: rgb(250, 247, 234);
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); 
+   padding-inline: 0.25rem;
+   font-family: 'Courier Prime',  'Courier New', Courier, monospace; 
+   color: #0f141b;
+} 
+
+:not(.highlight) > pre code {
+  display: block;
+  margin-left: 1rem;
+  margin-right: 1rem;  
+  padding: 1rem;
+  border-radius: 0.25rem;
+} */
+/* pre code {
+  display: block;
+  margin-left: 1rem;
+  margin-right: 1rem; 
+  padding: 1rem;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+} */
+
+/* 
+:not(.highlight) pre code {
+  display: block;
+  margin-left: 1rem;
+  margin-right: 1rem; 
+  padding: 1rem;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+}
+  */
+
+  /* Inline code only (not inside .highlight) */
+ :not(pre) > code {
+  background-color: rgb(250, 247, 234);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  padding-inline: 0.25rem;
+  font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+}
+
+/* Preformatted blocks without syntax highlighting */
+pre:not(.chroma) > code {
+  background-color: rgb(250, 247, 234);
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); 
+  padding: 0.5rem 1rem;
+  display: block;
+  border-radius: 0.25rem;
+}   
+
+/* Syntax-highlighted blocks (Chroma output) */
+/* .highlight pre {
+  background-color: #272822; 
+  color: #f8f8f2;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+  font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+} */
+
+
+/* Article content */
+article {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  margin-top: 1.5rem;
+}
+
+article p {
+  margin-bottom: 1rem;
+}
+
+/* Navigation table */
+nav {
+  margin: 1.5rem 0;
+}
+
+table {
+  /* width: 100%; */
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+  color: #374151;
+}
+
+
+#versions-and-languages-table-header {
+  text-align: center;
+}
+
+
+
+td a {
+  font-weight: 500;
+}
+
+tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 2rem; /* 32px */
+  }
+  h2 {
+    font-size: 1.5rem; /* 24px */
+  }
+  ul {
+    grid-template-columns: 1fr;
+  }
+  th, td {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+details.nav-matrix {
+  margin: 1em 0;
+}
+
+details.nav-matrix summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #0055aa; /* your accent color */
+}
+
+/*
+.chroma .hl-lineno {
+  user-select: none;       * prevent accidental copy *
+  color: #9ca3af;          * gray *
+  text-align: right;
+  padding-right: 0.75rem;
+  border-right: 1px solid #e5e7eb;
+}
+*/
+
+.codebox {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+   margin: 1rem 5rem; 
+
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* subtle shadow */
+  overflow: hidden; /* keeps shadow clean */
+}
+
+/* Header bar stays as you had it */
+.codebox-header {
+  background: #f3f4f6;
+   padding: 0.5rem 1rem; 
+    display: flex; 
+    justify-content: space-between;  
+   /* align-items: center;  */
+
+}
+
+/* Chroma output */
+.codebox .chroma pre {
+  margin: 0;              /* remove default margins */
+  padding: 0.5rem;          /*  add breathing room */
+  border-radius: 0;       /* match container edges */
+  overflow-x: auto;       /* scroll long lines */
+}
+
+/* Line numbers gutter */
+ /* .hl-lineno {
+  color: #48aa48;
+  padding-right: 0.1rem; 
+  border-right: 1px solid #e5e7eb;
+}  */
+
+.codebox-header .filename {
+  font-weight: 600;
+}
+
+.codebox-header .lang {
+  color: #6b7280;
+  margin-left: 1rem;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  color: #1e40af;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.copy-btn:hover {
+  text-decoration: underline;
+}
+

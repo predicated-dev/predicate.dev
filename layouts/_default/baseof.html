@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang | default "en" }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/chroma-github.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+  {{ block "main" . }}
+  {{ end }}
+</body>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  window.copyCode = function(btn) {
+    const code = btn.closest('.codebox').querySelector('pre').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = "Copy", 2000);
+    });
+  }
+});
+</script>
+
+</html>

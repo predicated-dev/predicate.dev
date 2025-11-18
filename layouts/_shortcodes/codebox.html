@@ -1,0 +1,14 @@
+<div class="codebox">
+  <div class="codebox-header">
+    {{ with .Get "filename" }}
+        <span class="filename">{{ . }}</span>
+    {{ else}}
+      <span>code</span>
+    {{ end }}
+    {{ with .Get "lang" }}<span class="lang">{{ . }}</span>{{ end }}
+    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+  </div>
+
+{{ highlight (replaceRE "^[\r\n]+" "" (printf "%s" .Inner)) (.Get "lang") "linenos=true" }}
+
+</div>

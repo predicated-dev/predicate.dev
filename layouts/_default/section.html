@@ -1,0 +1,14 @@
+{{ define "main" }}
+  {{/* If the section itself has content (index.md or _index.md), render it */}}
+  {{ if .Content }}
+    {{ partial "spec.html" . }}
+  {{ else }}
+    {{/* Otherwise, try to render the latest child page in this section */}}
+    {{ $latest := first 1 (where .Pages "Params.latest" true) }}
+    {{ with index $latest 0 }}
+      {{ partial "spec.html" . }}
+    {{ else }}
+      {{ partial "nav.html" }}   
+    {{ end }}
+  {{ end }}
+{{ end }}

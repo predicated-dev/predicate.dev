@@ -1,5 +1,5 @@
 # predicate.dev
-[predicate.dev](https://predicated.dev) - A website for software specifications
+[predicate.dev](https://predicate.dev) - A website for software specifications
 
 ## Create a new specification
 - Create a subfolder under the `content` folder with a short name for your specification. This folder will be used in the url, so make it lowercase, short and representative.

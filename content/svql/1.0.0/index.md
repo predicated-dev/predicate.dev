@@ -26,7 +26,7 @@ This specification defines a query language for matching **Versions** against ra
  7. **Juncture**: A specific point in **Version** ordering. A **Version** without **Build Metadata** (e.g., `1.2.3`, `1.2.3-alpha`).
  0. **Partial Version**: `MAJOR` or `MAJOR.MINOR`, not a valid **Version** (e.g., `1`, `1.2`).
 11. **Wildcard Version**: A **Partial Version** followed by `.` and **Wildcard**, or a lone **Wildcard** (e.g., `1.2.x`, `*`).
-12. **Wildcard**: A token (`x`, `X`, `*`) denoting any non-negative integer in a **Wildcard Version**.
+12. **Wildcard**: A token (`x`, `X`, `*`) in a **Core Triplet** position at the end of a **Wildcard Version**. Any non-negative value may be substituted at the Wildcard position as well as for the unspecified **Core Triplet** values after the Wildcard (e.g., `2.x` may have any non-negative value for `MAJOR` or `PATCH`) 
 13. **Comparator**: A comparison operator (`>`, `>=`, `<`, `<=`, `=`) with a **Version Pattern** (e.g., `>=1.2.x`, `>1.2.3-alpha.3`). If no operator, `=` is assumed (e.g., `1.2.3` is `=1.2.3`).
 14. **Bound**: Restricts a set of **Versions** to those
       - `>` the *highest* value represented by the **Version Pattern**: **Exclusive Lower Bound**,

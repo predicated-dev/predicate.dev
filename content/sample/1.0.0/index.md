@@ -5,7 +5,7 @@ latest: true
 ---
 
 ## Where to place specifications
-- Create a subfolder under the content folder with a short name for your specification. This folder will be used in the url, so make it lowercase, short and representative.
+- Create a subfolder under the `content` folder with a short name for your specification. This folder will be used in the url, so make it lowercase, short and representative.
 - Create an `_index.md` file with the full name of the specification
 {{< codebox filename="content/sample/_index.md" lang="md" >}}
 ---

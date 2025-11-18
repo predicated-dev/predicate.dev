@@ -28,13 +28,13 @@ latest: true
 Content of the specification goes here
 ```
 
-
 ## Translations
 - Check `hugo.toml` file to see if the language is present in the `[languages]` section, else add it.
-- Note the language abbreviation.  Lets say its `xyz`
-- Check if `i18n/xyz.yaml` is available (subsitute the language abbreviation for `xyz`)
-- Translate the content of `i18n/xyz.yaml` based on `i18n/en.yaml`
-- Locate the specification file to translate, say `content/sample/1.0.0/index.md`and copy it to `content/sample/1.0.0/index.xyz.md` (again substitute language abbreviation for `xyz`)
+- Note the language abbreviation. We will use `fr` (French) as an example. In all cases below subsitute `fr` for your language abbreviation
+- Check if `i18n/fr.yaml` is available, if not copy `i18n/en.yaml` to `i18n/fr.yaml` 
+- Translate the content of `i18n/fr.yaml` based on `i18n/en.yaml` as needed. 
+- Locate the specification file to translate, for example to translate Semantic Version Query Language Specification 1.0.0 copy `content/svql/1.0.0/index.md` to `content/svql/1.0.0/index.fr.md`
+- Translate the language specific file
 
 ## Create a pull request with your specfication
 - Create a pull request via GitHub and we will consider your submission for approval

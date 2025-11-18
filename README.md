@@ -31,8 +31,8 @@ Content of the specification goes here
 ## Translations
 - Check `hugo.toml` file to see if the language is present in the `[languages]` section, else add it.
 - Note the language abbreviation. We will use `fr` (French) as an example. In all cases below subsitute `fr` for your language abbreviation
-- Check if `i18n/fr.yaml` is available
-- Translate the content of `i18n/fr.yaml` based on `i18n/en.yaml` if needed
+- Check if `i18n/fr.yaml` is available, if not copy `i18n/en.yaml` to `i18n/fr.yaml` 
+- Translate the content of `i18n/fr.yaml` based on `i18n/en.yaml` as needed. 
 - Locate the specification file to translate, for example to translate Semantic Version Query Language Specification 1.0.0 copy `content/svql/1.0.0/index.md` to `content/svql/1.0.0/index.fr.md`
 - Translate the language specific file
 

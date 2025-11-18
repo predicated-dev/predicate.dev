@@ -49,3 +49,7 @@ defaultContentLanguageInSubdir = false
   [languages.ko]
     weight = 10
     languageName = "한국어"
+
+  [caches]
+    [caches.images]
+      dir = ':cacheDir/images'

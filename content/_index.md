@@ -7,5 +7,4 @@ aliases: ["/en/"]
 sentence, and what the predicate says,
 he does." - Schoolhouse Rock
 
-
-
+---

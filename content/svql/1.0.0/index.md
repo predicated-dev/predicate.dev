@@ -61,7 +61,7 @@ Version precedence follows Semantic Versioning 2.0.0:
 - **Lowest Version**: `0.0.0-0`.
    - `<0.0.0-0`: Empty set
    - `>=0.0.0-0`: **Full Range** (all **Stable Versions**).
-   - `>=0.0.0 @0` := `>=0.0.0-0 @0`: **Full Range** (all **Versions**).
+   - `>=0.0.0-0 @0`: **Full Range** (all **Versions**).
 - **Highest Version**: `MAX.MAX.MAX`, an undefined upper bound for **Core Triplet**. Inequalities are adjusted to avoid defining `MAX` (e.g., `<=2.3.MAX` := `<2.4.0-0`).
 - **Lowest Pre-release Label**: `0`.
 - **Highest Pre-release Label**: `(MAX)` Theoretical infinite series of `z`. Inequalities are adjusted to avoid definition (e.g., `<=2.3.1-(MAX)` := `<2.3.2-0`). `(MAX)` is not a valid **Pre-release Identifier** because `(` and `)` are not allowed.
@@ -83,7 +83,7 @@ version-pattern ::= juncture | partial-version | wildcard-version
 juncture ::= number '.' number '.' number ( '-' prerelease-label ) ?
 partial-version ::= number ( '.' number ) ?
 wildcard-version ::= wildcard | partial-version '.' wildcard
-prerelease-label ::= prerelease-identifier ( '.' prerelease-identifier )*
+prerelease-label ::= prerelease-identifier ( '.' prerelease-identifier ) *
 prerelease-identifier ::= non-number-identifier | number
 non-number-identifier ::= ( identifier-character ) * non-digit ( identifier-character ) *
 identifier-character ::= digit | non-digit
@@ -91,7 +91,7 @@ non-digit ::= alpha | '-'
 wildcard ::= 'x' | 'X' | '*'
 number ::= '0' | positive-digit ( digit ) *
 positive-digit ::= ['1'-'9']
-digits ::= digit ( digit )*
+digits ::= digit ( digit ) *
 digit ::= ['0'-'9']
 alpha ::= ['A'-'Z'] | ['a'-'z']
 ```

@@ -254,8 +254,8 @@ For example:  `>=2.3.4 @alpha <2.5.6 @beta` (not valid syntax) is equivalent to 
 
 No, `MAX` is not part of the input syntax. **Version Constraints** with `MAX` must be converted to equivalent syntax without `MAX`:
 
-- `<2.3.MAX` (not valid syntax) := `<=2.4.0-0` (valid syntax).
-- `>2.3.MAX` (not valid syntax) := `>2.4.0`.
+- `<2.3.MAX` (not valid syntax) := `<2.4.0-0` (valid syntax).
+- `>2.3.MAX` (not valid syntax) := `>=2.4.0-0`.
 - `<2.3.4-(MAX)` (not valid syntax) := `<2.3.5-0`.
 - `>2.3.4-(MAX)` (not valid syntax) := `>=2.3.5`.
 

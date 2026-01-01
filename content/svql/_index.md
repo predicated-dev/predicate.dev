@@ -1,3 +1,3 @@
 ---
-title: "Semantic Version Query Language Specification"
+title: "Semantic Version Query Language"
 ---

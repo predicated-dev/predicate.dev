@@ -4,6 +4,8 @@ version: "1.0.0"
 latest: true
 ---
 
+This "Howto" was added as if it were a specification, feel free to use it as a sample to test versioning and translation.
+
 ## How to run the specification site locally
 - install [Hugo](https://gohugo.io/)
 - Fork or clone the repository at https://github.com/predicated-dev/predicate.dev

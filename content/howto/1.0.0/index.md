@@ -1,12 +1,12 @@
 ---
-title: "Sample Specification"
+title: "How to add a Specification"
 version: "1.0.0"
 latest: true
 ---
 
 ## How to run the specification site locally
 - install [Hugo](https://gohugo.io/)
-- Clone the repository at https://github.com/predicated-dev/predicate.dev
+- Fork or clone the repository at https://github.com/predicated-dev/predicate.dev
 - Navigate to the folder and run `hugo serve` or `hugo server`
 
 ## Where to place new specifications

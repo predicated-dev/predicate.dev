@@ -214,20 +214,26 @@ details.nav-matrix summary {
 .codebox {
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
-   margin: 1rem 5rem; 
+   margin: 1rem 1rem; 
 
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* subtle shadow */
   overflow: hidden; /* keeps shadow clean */
+  overflow-x: auto;
 }
 
-/* Header bar stays as you had it */
+
+@media (min-width: 768px) { 
+  .codebox 
+    { 
+        margin: 1rem 5rem; 
+    } 
+}
+
 .codebox-header {
   background: #f3f4f6;
-   padding: 0.5rem 1rem; 
-    display: flex; 
-    justify-content: space-between;  
-   /* align-items: center;  */
-
+  padding: 0.5rem 1rem; 
+  display: flex; 
+  justify-content: space-between;  
 }
 
 /* Chroma output */
@@ -238,12 +244,6 @@ details.nav-matrix summary {
   overflow-x: auto;       /* scroll long lines */
 }
 
-/* Line numbers gutter */
- /* .hl-lineno {
-  color: #48aa48;
-  padding-right: 0.1rem; 
-  border-right: 1px solid #e5e7eb;
-}  */
 
 .codebox-header .filename {
   font-weight: 600;

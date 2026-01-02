@@ -217,7 +217,7 @@ details.nav-matrix summary {
    margin: 1rem 1rem; 
 
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* subtle shadow */
-  overflow: hidden; /* keeps shadow clean */
+  /*overflow: hidden;  keeps shadow clean */
   overflow-x: auto;
 }
 

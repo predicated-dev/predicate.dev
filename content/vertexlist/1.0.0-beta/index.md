@@ -61,9 +61,9 @@ The following values are provided by the descriptor. The byte offsets are in bra
 - [16] `_padding_`: 32-bit pad. Only on 32-bit platforms. This forces alignment of the next field `stride` to be at offset 20
 - [20] `stride`: a 16-bit unsigned integer size 
     - For arrays: The distance in bytes from element to element in bytes (also the size of elements in the array). 
-    - For linked lists: The bytes ofset from the start of the node to the pointer of the next node. It is **not** the size of the node.
+    - For linked lists: The bytes offset from the start of the node to the pointer of the next node. It is **not** the size of the node.
 - [22] `structure_offset`: a 16-bit unsigned integer offset (in bytes) from the start of a `Vertex` to its first coordinate
-- [24] `pointer_offset`: a 16-bit unsigned integer offset (in bytes). If `indirection` is 1 then it is the offset is bytes from the start of the Array element or Linked List `Node` to the `Vertex` pointer. In all other cases set it to 0
+- [24] `pointer_offset`: a 16-bit unsigned integer offset (in bytes). If `indirection` is 1 then it is the offset in bytes from the start of the Array element or Linked List `Node` to the `Vertex` pointer. In all other cases set it to 0
 - [26] `dimensionality`: an 8-bit integer value indicating the number of coordinates. May pass 0 if dimensionality is known from API naming, context, protocol. etc.
 - [27] `coordinate_system`: an 8 bit value from an enumeration of coordinate systems. 
      - 0: Known. Either from API call naming, protocol or context
@@ -99,7 +99,7 @@ Implementations should add static asserts to ensure alignment and may add strong
 
 ## Constraints
 - **Coordinates** are all of the same single datatype as specified by the **descriptor**. For instance, if we use polar **coordinates** we can't have 32-bit integer values for the radial **coordinate** and 64-bit floating values for the angular **coordinate**. 
-- **Coordinate** values for a specific **vertex** are stored in contiguous adjacent memory locations. Meaning if we have say a 2 dimensional Cartesian vertex its X and Y coordinates are stored directly one after the other. (e.g., `double x, y` or `long coords[2]`)
+- **Coordinate** values for a specific **vertex** are stored in contiguous adjacent memory locations. Meaning if we have say a 2-dimensional Cartesian vertex its X and Y coordinates are stored directly one after the other. (e.g., `double x, y` or `long coords[2]`)
 - Only structures smaller than 2^16 (65,536) bytes supported by offset and stride variables.
 
 ## Common Vertex List types
@@ -111,14 +111,14 @@ In illustrations below:
 - `{}`: the bounds of a structure. 
 - `[]`: the bounds of an array.
 - `()`: the bounds of the contiguous set of coordinates that define our vertex
-- `(x1, y1)`, `(x2, y2)`, etc: denotes a coordinate group defining a vertex (only 2-dimensions shown in examples, but any dimensionality up to 255 is supported). Coordinate groups may be any form of contiguous values: a series of fields, an array of values, a structure with fields, etc.
+- `(x1, y1)`, `(x2, y2)`, etc: denotes a coordinate group defining a vertex (only two dimensions shown in examples, but any dimensionality up to 255 is supported). Coordinate groups may be any form of contiguous values: a series of fields, an array of values, a structure with fields, etc.
 - `n1`, `n2`, etc. denotes pointers to nodes in a linked list
 - `pre_1`, `post_1`, `inter_1`, etc. denotes optional extraneous data and padding
 - `->` shows the value at the memory address held by the pointer (`pointer -> value`) 
 
 Note that 1-based subscript is used in illustrations (simplifies the syntax for the last element in the series).
 
-In all cases below will the vertex array descriptor have
+In all cases below, will the vertex array descriptor have:
 
 - **version**: Default 1 from definition and should not be altered
 - **count**: Number of elements in the array or list
@@ -150,7 +150,7 @@ To Define the Vertex Array Descriptor we provide
 - **stride**: The size of a pointer (`sizeof(void*)`)
 - **list_type**: 0 (`VertexListType::Array`) 
 - **indirection**: 1
-- **pointer_offset**: 0 (Points directly to structures)
+- **pointer_offset**: 0 (points directly to structures)
 
 ### Arrays of structures with pointers to Vertices
 
@@ -174,7 +174,7 @@ Linked lists are chains of pointers to `Nodes`. `Nodes` can be located anywhere 
 
 For example: `n1 -> {pre_1, (x1, y1), inter_1, n2, post_1}`, `n2 -> {pre_2, (x2, y2), inter_2, n3, post_2}`, the location of the pointer to the next node is specified by a **pointer offset**, and the **structure offset**, as before, is the distance from the start of the structure to the first coordinate.
 
-Please note that the pointer to next could also appear before the vertex, for instance:  `n1 -> [pre_1, n2, inter_1, (x1, y1), post_1]`. 
+Please note that the pointer to next `Node` could also appear before the vertex, for instance:  `n1 -> [pre_1, n2, inter_1, (x1, y1), post_1]`. 
 
 To Define the Vertex Array Descriptor we provide
 - **data**: Pointer to first node in the linked list (`&n1`)
@@ -187,7 +187,7 @@ To Define the Vertex Array Descriptor we provide
 
 ## Linked list of pointers to structures
 
-We can have a linked list where each node does not directly hold our vertex, but rather point to it.
+We can have a linked list where each node does not directly hold our vertex, but rather points to it.
 `n1 -> {pre1, p1, inter_1, n2, post_1}`, where `p1 -> v1`.
 
 To Define the Vertex Array Descriptor we provide
@@ -203,12 +203,12 @@ To Define the Vertex Array Descriptor we provide
 
 `Version` field needs to remain fixed as the first value and incremented when the memory layout or structure changes. The `Version` value should be incremented by 1 when the structure is changed.
 
-Older readers may not assume the stucture of a descriptor with a newer unknonwn version, but a best effort should be made to avoid breaking changes:
+Older readers may not assume the structure of a descriptor with a newer unknown version, but a best effort should be made to avoid breaking changes:
 - New fields should be appended, not inserted
 - Existing offsets should remain stable
 - Older readers should not read beyond known fields
 
-If a breaking change version is made it should be clearly noted in an updated specification. Doing this will allow API developers to check what versions their API can support. Once a breaking change is approved, the entire structure with exceptipn of the `Version` field may be restructured and the size of fields modified. While this is not forseen, it cannot be precluded.
+If a breaking change is made it should be clearly noted in an updated specification. Doing this will allow API developers to check what versions their API can support. Once a breaking change is approved, the entire structure with exception of the `Version` field may be restructured and the size of fields modified. While this is not foreseen, it cannot be precluded.
 
 Note: Version numbers refer to the descriptor format, not the specification version
 

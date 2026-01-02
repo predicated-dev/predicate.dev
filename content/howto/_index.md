@@ -1,3 +1,3 @@
 ---
-title: "How to add a Specification"
+title: "How to add a Specification (Sample)"
 ---

@@ -125,7 +125,7 @@ In all cases below, will the vertex array descriptor have:
 - **data_type**: The type of coordinates 
 - **dimensionality**: 2 for all examples below (we only illustrate with `X`, `Y` Cartesian coordinates)
 
- ## Structure holding Coordinates ('Vertex`)
+ ## Structure holding Coordinates (`Vertex`)
  Even though the structures that hold coordinates can be more complex than simple vertices we will still call them `Vertices` for simplicity. A `Vertex` is a structure of the form `{pre, (x, y), post}` where `pre` and `post` are optional data before and after the coordinates (`X` and `Y`).
 
 ### Arrays of Vertices

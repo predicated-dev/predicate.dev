@@ -35,7 +35,7 @@ Content of the specification goes here
 ```
 
 ## Translations
-- Check `hugo.toml` file to see if the language is present in the `[languages]` section, else add it (or uncomment if a lanuguage is present, but commented out with `#`)
+- Check `hugo.toml` file to see if the language is present in the `[languages]` section, else add it (or uncomment if a language is present, but commented out with `#`)
 - Note the language abbreviation. We will use `fr` (French) as an example. In all cases below subsitute `fr` for your language abbreviation
 - Check if `i18n/fr.yaml` is available, if not copy `i18n/en.yaml` to `i18n/fr.yaml` 
 - Translate the content of `i18n/fr.yaml` based on `i18n/en.yaml` as needed. 

@@ -11,13 +11,22 @@
 {{/* Get the section page */}}
 {{ $sectionPage := .Site.GetPage $section }}
 
-{{- if .Params.description -}}
-<meta name="description" content="{{ .Params.description | htmlEscape }}">
-{{- else if $sectionPage.Params.description -}}
-<meta name="description" content="{{ $sectionPage.Params.description | htmlEscape }}">
-{{- else if .Site.Params.description -}}
-<meta name="description" content="{{ .Site.Params.description | htmlEscape }}">
-{{- end }}
+{{/* Determine the base description */}}
+{{ $desc := "" }}
+{{ if .Params.description }}
+  {{ $desc = .Params.description }}
+{{ else if $sectionPage.Params.description }}
+  {{ $desc = $sectionPage.Params.description }}
+{{ else if .Site.Params.description }}
+  {{ $desc = .Site.Params.description }}
+{{ end }}
+
+
+{{/* Append version if available */}}
+{{ if .Params.version }}
+  {{ $desc = printf "%s (%s %s)" $desc (i18n "version") .Params.version }}
+{{ end }}
+<meta name="description" content="{{ $desc | htmlEscape }}">
 
 
   <title>{{ .Title }} | {{ .Site.Title }}</title>

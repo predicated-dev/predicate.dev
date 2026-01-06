@@ -20,6 +20,8 @@ title: "Sample Specification"
 description : "Sample specification that doubles as instructions on how to add your own spec"
 ---
 {{< /codebox >}}
+- `title`: Shown in each versioned spec page in an H1 tag
+- `description`: A meta tag added for search engines
 
 ## Front-matter tags in specifications
 - `version`: A [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) compliant version number. Shown directly below the title in an H2 tag

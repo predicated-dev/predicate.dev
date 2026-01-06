@@ -19,7 +19,7 @@ description : "Sample specification that doubles as instructions on how to add y
 ```
 - `title`: Shown in each versioned spec page in an H1 tag
 - `description`: A meta tag added for search engines
-- 
+
 ## Front-matter tags in specifications
 - `version`: A [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html) compliant version number. Shown directly below the title in an H2 tag
 - `latest`: true or false (default). Used to determine the specification shown when navigating to the specification main URL. At least one specification should be marked as `latest`, usually the latest release version of the specification 
@@ -35,7 +35,7 @@ Content of the specification goes here
 ```
 
 ## Translations
-- Check `hugo.toml` file to see if the language is present in the `[languages]` section, else add it.
+- Check `hugo.toml` file to see if the language is present in the `[languages]` section, else add it (or uncomment if present and has `#` in front of the section)
 - Note the language abbreviation. We will use `fr` (French) as an example. In all cases below subsitute `fr` for your language abbreviation
 - Check if `i18n/fr.yaml` is available, if not copy `i18n/en.yaml` to `i18n/fr.yaml` 
 - Translate the content of `i18n/fr.yaml` based on `i18n/en.yaml` as needed. 

@@ -1,5 +1,4 @@
 ---
-title: "Vertex List Descriptor"
 version: "1.0.0-beta"
 latest: true
 ---

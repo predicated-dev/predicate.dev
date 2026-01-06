@@ -3,6 +3,9 @@ title = "Predicate Specifications"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
+[params]
+description = "A site of public technical specifications"
+
 [markup]
   [markup.highlight]
     style = "github"   # or monokai, github, etc.
@@ -16,39 +19,39 @@ defaultContentLanguageInSubdir = false
 
   [languages.fr]
     weight = 2
-    languageName = "Français"
-
-  [languages.de]
-   weight = 3
-   languageName = "Deutsch"
-
-  [languages.es]
-    weight = 4
-    languageName = "Español"
-
-  [languages.it]
-    weight = 5
-    languageName = "Italiano"
-
-  [languages.pt]
-    weight = 6
-    languageName = "Português"
-
-  [languages.ru]
-    weight = 7
-    languageName = "Русский"
-
-  [languages.zh]
-    weight = 8
-    languageName = "中文"
-
-  [languages.ja]
-    weight = 9
-    languageName = "日本語"
-
-  [languages.ko]
-    weight = 10
-    languageName = "한국어"
+  languageName = "Français"
+#
+#  [languages.de]
+#   weight = 3
+#   languageName = "Deutsch"
+#
+#  [languages.es]
+#    weight = 4
+#    languageName = "Español"
+#
+#  [languages.it]
+#    weight = 5
+#    languageName = "Italiano"
+#
+#  [languages.pt]
+#    weight = 6
+#    languageName = "Português"
+#
+#  [languages.ru]
+#    weight = 7
+#    languageName = "Русский"
+#
+#  [languages.zh]
+#    weight = 8
+#    languageName = "中文"
+#
+#  [languages.ja]
+#    weight = 9
+#    languageName = "日本語"
+#
+#  [languages.ko]
+#    weight = 10
+#    languageName = "한국어"
 
   [caches]
     [caches.images]

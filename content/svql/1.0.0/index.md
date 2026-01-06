@@ -1,5 +1,4 @@
 ---
-title: "Semantic Version Query Language"
 version: "1.0.0"
 latest: true
 ---

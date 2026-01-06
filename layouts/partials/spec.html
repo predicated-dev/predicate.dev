@@ -1,4 +1,13 @@
 {{ partial "nav.html" . }}
-<h1>{{ .Title }}</h1>
+
+<h1>
+  {{- if .Title -}}
+    {{ .Title }}
+  {{- else if .CurrentSection.Title -}}
+    {{ .CurrentSection.Title }}
+  {{- end }}
+</h1>
+
+
 <h2>{{ .Params.version }}</h2>
 <article>{{ .Content }}</article>

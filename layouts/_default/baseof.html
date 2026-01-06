@@ -3,6 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+{{/* Get the current section */}}
+{{ $section := .Section }}
+
+{{/* Get the section page */}}
+{{ $sectionPage := .Site.GetPage $section }}
+
+{{- if .Params.description -}}
+<meta name="description" content="{{ .Params.description | htmlEscape }}">
+{{- else if $sectionPage.Params.description -}}
+<meta name="description" content="{{ $sectionPage.Params.description | htmlEscape }}">
+{{- else if .Site.Params.description -}}
+<meta name="description" content="{{ .Site.Params.description | htmlEscape }}">
+{{- end }}
+
+
   <title>{{ .Title }} | {{ .Site.Title }}</title>
     <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">

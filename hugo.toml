@@ -17,9 +17,9 @@ description = "A site of public technical specifications"
     weight = 1
     languageName = "English"
 
-  [languages.fr]
-    weight = 2
-  languageName = "Français"
+#  [languages.fr]
+#    weight = 2
+#  languageName = "Français"
 #
 #  [languages.de]
 #   weight = 3

@@ -3,6 +3,10 @@ title = "Predicate Specifications"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
+
+disableKinds = ["taxonomy", "term"]
+
+# just to be sure make taxonomies empty too
 [taxonomies]
 # tag = "tags"
 # category = "categories"

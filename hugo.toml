@@ -3,6 +3,10 @@ title = "Predicate Specifications"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
+[taxonomies]
+# tag = "tags"
+# category = "categories"
+
 [params]
 description = "A site of public technical specifications"
 

@@ -104,3 +104,18 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Notify IndexNow
+        run: |
+          curl -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "host": "predicate.dev",
+              "key": "5c35de7265f545448f0a6b6c33ede010",
+              "keyLocation": "https://predicate.dev/5c35de7265f545448f0a6b6c33ede010.txt",
+              "urlList": [
+                "https://predicate.dev/",
+                "https://predicate.dev/sitemap.xml"
+              ]
+            }'
+
+        

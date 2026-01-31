@@ -3,39 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  
-{{/* Get the current section */}}
-{{ $section := .Section }}
-
-{{/* Get the section page */}}
-{{ $sectionPage := .Site.GetPage $section }}
-
-{{/* Determine the base description */}}
-{{ $desc := "" }}
-{{ if .Params.description }}
-  {{ $desc = .Params.description }}
-{{ else if $sectionPage.Params.description }}
-  {{ $desc = $sectionPage.Params.description }}
-{{ else if .Site.Params.description }}
-  {{ $desc = .Site.Params.description }}
-{{ end }}
-
-
-{{/* Append version if available */}}
-{{ if .Params.version }}
-  {{ $desc = printf "%s (%s %s)" $desc (i18n "version") .Params.version }}
-{{ end }}
-<meta name="description" content="{{ $desc | htmlEscape }}">
-
-
+{{ partial "seo.html" . }}
+{{ partial "schema-website.html" . }}
+{{ partial "schema-breadcrumbs.html"  . }}
   <title>{{ .Title }} | {{ .Site.Title }}</title>
     <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/chroma-github.css">
   <link rel="stylesheet" href="/css/style.css">
-
 </head>
 
 <body>

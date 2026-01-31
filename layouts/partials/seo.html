@@ -1,0 +1,50 @@
+{{- $canonical := .Permalink -}}
+
+{{- $sectionPage := .Site.GetPage (printf "%s" .Section) -}}
+
+{{- $desc := "" -}}
+{{- if .Params.description -}}
+  {{- $desc = .Params.description -}}
+{{- else if $sectionPage.Params.description -}}
+  {{- $desc = $sectionPage.Params.description -}}
+{{- else if .Site.Params.description -}}
+  {{- $desc = .Site.Params.description -}}
+{{- end -}}
+
+{{- if .Params.version -}}
+  {{- $desc = printf "%s (%s %s)" $desc (i18n "version") .Params.version -}}
+{{- end -}}
+<meta name="description" content="{{ $desc | htmlEscape }}">
+
+<link rel="canonical" href="{{ $canonical }}">
+
+{{- $ogType := "website" -}}
+{{- if and .IsPage .Params.version -}}
+  {{- $ogType = "article" -}}
+{{- end -}}
+
+{{- $title := "" -}}
+{{- if .Params.version -}}
+  {{- $title = printf "%s %s" $sectionPage.Title .Params.version -}}
+{{- else if .IsSection -}}
+  {{- $title = $sectionPage.Title -}}
+{{- else -}}
+  {{- $title = .Title -}}
+{{- end -}}
+
+<title>{{- $title }} | {{ .Site.Title -}}</title>
+
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:title" content="{{- $title }} | {{ .Site.Title -}}">
+<meta property="og:description" content="{{ $desc | htmlEscape }}">
+<meta property="og:url" content="{{ $canonical }}">
+{{ with .Params.images }}
+<meta property="og:image" content="{{ index . 0 }}">
+{{ end }}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{- $title }} | {{ .Site.Title -}}">
+<meta name="twitter:description" content="{{ $desc | htmlEscape }}">
+{{ with .Params.images }}
+<meta name="twitter:image" content="{{ index . 0 }}">
+{{ end }}

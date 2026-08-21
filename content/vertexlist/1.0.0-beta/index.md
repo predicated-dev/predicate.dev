@@ -82,16 +82,16 @@ struct VertexArrayDescriptor {
     std::uint8_t indirection = 0;
     std::uint64_t count = 0;
     void*         data = nullptr;
-
 #if UINTPTR_MAX == 0xFFFFFFFFULL
     std::uint32_t _padding_ = 0;
 #endif
     std::uint16_t stride = 0;
     std::uint16_t structure_offset = 0;
     std::uint16_t pointer_offset = 0;
-
-
+    std::uint8_t  dimensionality = 0;
+    std::uint8_t  coordinate_system = 0;
 };
+
 {{< /codebox >}}
 
 Implementations should add static asserts to ensure alignment and may add strong types via getters and setters.

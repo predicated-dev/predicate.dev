@@ -273,7 +273,7 @@ To Define the Vertex Array Descriptor we provide
 
 Linked lists are chains of pointers to `Nodes`. `Nodes` can be located anywhere in memory, each node has a pointer to the next `Node` in the list and also holds the coordinate values of a specific vertex. Coordinates are held directly by the `Node` or in a nested `Vertex` structure. 
 
-For example: `n1 -> {pre_1, (x1, y1), inter_1, n2, post_1}`, `n2 -> {pre_2, (x2, y2), inter_2, n3, post_2}`, the location of the pointer to the next node is specified by the **stride*, and the **structure offset**, as before, is the distance from the start of the structure to the first coordinate.
+For example: `n1 -> {pre_1, (x1, y1), inter_1, n2, post_1}`, `n2 -> {pre_2, (x2, y2), inter_2, n3, post_2}`, the location of the pointer to the next node is specified by the **stride**, and the **structure offset**, as before, is the distance from the start of the structure to the first coordinate.
 
 Please note that the pointer to next `Node` could also appear before the vertex, for instance:  `n1 -> [pre_1, n2, inter_1, (x1, y1), post_1]`. 
 

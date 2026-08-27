@@ -273,7 +273,7 @@ To Define the Vertex Array Descriptor we provide
 
 Linked lists are chains of pointers to `Nodes`. `Nodes` can be located anywhere in memory, each node has a pointer to the next `Node` in the list and also holds the coordinate values of a specific vertex. Coordinates are held directly by the `Node` or in a nested `Vertex` structure. 
 
-For example: `n1 -> {pre_1, (x1, y1), inter_1, n2, post_1}`, `n2 -> {pre_2, (x2, y2), inter_2, n3, post_2}`, the location of the pointer to the next node is specified by a **pointer offset**, and the **structure offset**, as before, is the distance from the start of the structure to the first coordinate.
+For example: `n1 -> {pre_1, (x1, y1), inter_1, n2, post_1}`, `n2 -> {pre_2, (x2, y2), inter_2, n3, post_2}`, the location of the pointer to the next node is specified by the **stride*, and the **structure offset**, as before, is the distance from the start of the structure to the first coordinate.
 
 Please note that the pointer to next `Node` could also appear before the vertex, for instance:  `n1 -> [pre_1, n2, inter_1, (x1, y1), post_1]`. 
 
@@ -349,7 +349,7 @@ To Define the Vertex Array Descriptor we provide
 
 ### Spaced Axis Arrays in a single block
 
-As above, but the `Axis Arrays` are deliberately spaced further apart than their contents require, for instance so that each begins on a cache line: `[(x1, ... xn) inter_1 (y1, ... yn) inter_2]`.
+As above, but the `Axis Arrays` are deliberately spaced further apart than their contents require, for instance so that each begins on a cache line: `[(x1, ... xn) post_x (y1, ... yn) post_y]`.
 
 To Define the Vertex Array Descriptor we provide
 - **data**: Pointer to the block
@@ -358,7 +358,7 @@ To Define the Vertex Array Descriptor we provide
 - **list_type**: 2 (`VertexListType::StructureOfArrays`) 
 - **indirection**: 0
 - **pointer_offset**: The distance in bytes from the start of the block to the first coordinate
-- **axis_stride**: The distance in bytes from the end of one `Axis Array` to the start of the next, which is the size of `inter_1`. The `Axis Arrays` themselves may be of any size, since only the padding between them has to fit in 16 bits
+- **axis_stride**: The distance in bytes from the end of one `Axis Array` to the start of the next, which is the size of `post_*`. The `Axis Arrays` themselves may be of any size, since only the padding between them has to fit in 16 bits (this reprenntation limits padding to 65,535 bytes per axis). 
 
 ### Axis Arrays of structures
 

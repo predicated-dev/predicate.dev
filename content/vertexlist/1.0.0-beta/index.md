@@ -1,6 +1,6 @@
 ---
 version: "1.0.0-beta"
-latest: true
+latest: false
 ---
 ## Summary
 A cross-platform way to describe vertex memory layouts so that APIs can interoperate without requiring knowledge of the underlying data structures.
